@@ -32,9 +32,12 @@ target_link_libraries(asound_module_pcm_audio_manager asound)
 # install
 if (${ALSA_LIBRARY} MATCHES "/usr/lib/x86_64-linux-gnu/libasound.so")
   set(INSTALL_DIR "/usr/lib/x86_64-linux-gnu/alsa-lib/")
+elseif (${ALSA_LIBRARY} MATCHES "/lib/aarch64-linux-gnu/libasound.so")
+  set(INSTALL_DIR "/lib/aarch64-linux-gnu/alsa-lib/")
 else()
-  set(INSTALL_DIR ${CMAKE_INSTALL_PREFIX}"/alsa-lib/")
+  set(INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/alsa-lib/")
 endif()
+
 
 install(TARGETS asound_module_pcm_audio_manager DESTINATION ${INSTALL_DIR})
 
