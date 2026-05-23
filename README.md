@@ -19,22 +19,23 @@ make
 ``
 
 The output should be something like this:
-``
+```
 [ 50%] Building C object CMakeFiles/asound_module_pcm_audio_manager.dir/src/pcm_audio_manager.c.o
 [100%] Linking C shared library libasound_module_pcm_audio_manager.so
 [100%] Built target asound_module_pcm_audio_manager
-``
+```
 
 ## installing the plugin
 After building the plugin, the plugin can be installed with:
-``
+```
 sudo make install
-``
+```
 
 ## alsa configuration
-Configuration 
+Edit the ALSA Configuration
+ 
 /etc/asound.conf
-``
+```
 # Define am_alsa using the pcm_audio_manager_alsa plugin
 pcm.am_alsa {
   type pcm_audio_manager
@@ -52,13 +53,14 @@ pcm.plug {
 pcm.!default {
   type am_alsa
 }
-``
+```
 
 ## mpd configuration
+When using the Music Player Daemon (MPD) for playback, you have to edit the configuration of MPD as well.
 
 /etc/mpd.conf
 
-``
+```
 audio_output {
        type                "alsa"
        name                "Default ALSA Device"
@@ -72,9 +74,9 @@ audio_output {
 }
 
 replaygain			"off"
-``
+```
 
-
+<br>
 
 # COPYING
  Copyright (c) 2024-2026 Eelco Heerschop (eelco@heerschop.frl)
