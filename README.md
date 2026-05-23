@@ -1,5 +1,5 @@
 # pcm_audio_manager_alsa
-pcm_audio_manager_alsa is a userspace alsa output plugin to deliver a PCM audio stream to the audio-manager from an ALSA capable audio application such as the Music Player Daemon (MPD).
+pcm_audio_manager_alsa is a userspace alsa output plugin to deliver a PCM audio stream to the [audio-manager](https://github.com/Lnxzz/audio-manager) from an ALSA capable audio application such as the Music Player Daemon (MPD).
 
 ## installing prerequisites
 To build this project from source, a standard C/C++ build environment with cmake needs to be installed next to the ALSA development library.
