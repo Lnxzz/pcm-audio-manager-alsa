@@ -1,0 +1,8 @@
+build*/
+release*/
+debug*/
+.archive*/
+.vscode*/
+**/*.sqlite
+**/CMakeFile/*
+**/*.cmake

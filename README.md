@@ -1,11 +1,13 @@
-#pcm_audio_manager_alsa
-pcm_audio_manager_alsa is an userspace alsa output plugin to deliver a PCM audio stream to the audio-manager from an ALSA capapable audio application such as the Music Player Daemon (MPD).
+# pcm_audio_manager_alsa
+pcm_audio_manager_alsa is a userspace alsa output plugin to deliver a PCM audio stream to the audio-manager from an ALSA capable audio application such as the Music Player Daemon (MPD).
 
 ## installing prerequisites
-pcm_audio_manager_alsa
+To build this project from source, a standard C/C++ build environment with cmake needs to be installed next to the ALSA development library.
+
 ```
 sudo get update
-sudo apt-get install build-essential libasound2-dev
+sudo apt-get install build-essential cmake
+sudo apt-get install libasound2-dev
 ```
 
 ## building the plugin
@@ -16,6 +18,7 @@ cmake ../
 make
 ``
 
+The output should be something like this:
 ``
 [ 50%] Building C object CMakeFiles/asound_module_pcm_audio_manager.dir/src/pcm_audio_manager.c.o
 [100%] Linking C shared library libasound_module_pcm_audio_manager.so
@@ -29,12 +32,12 @@ sudo make install
 ``
 
 ## alsa configuration
-
+Configuration 
 /etc/asound.conf
 ``
 # Define am_alsa using the pcm_audio_manager_alsa plugin
 pcm.am_alsa {
-  type pcm_audio_manager_alsa
+  type pcm_audio_manager
 }
 
 # Configure the 'plug' plugin to be used as fallback
@@ -45,7 +48,7 @@ pcm.plug {
   }
 }
 
-# Set the default device to am_alsa
+# The following lines define the pcm audio manager as the default device
 pcm.!default {
   type am_alsa
 }
@@ -73,3 +76,9 @@ replaygain			"off"
 
 
 
+# COPYING
+ Copyright (c) 2024-2026 Eelco Heerschop (eelco@heerschop.frl)
+ 
+ This software is released under the MIT License (MIT)
+
+ See [LICENSE](LICENSE) or https://opensource.org/licenses/MIT
